@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lista Dados</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col"> # </th>
+				<th scope="col"> Nome </th>
+				<th scope="col"> Contato </th>
+				<th scope="col"> Tipo </th>
+				<th scope="col"> Descrição </th>
+				<th scope="col"> Localização </th>
+				<th scope="col"> Status </th>
+				<th scope="col"> Ação </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="pet : ${listaDados}">
+				<td th:text="${pet.id}"> 1 </td>
+				<td th:text="${pet.solicitante}"> Nome </td>
+				<td th:text="${pet.soliContato}"> Contato </td>	
+				<td th:text="${pet.tipo}"> Tipo </td>
+				<td th:text="${pet.descricao}"> Descricao </td>
+				<td th:text="${pet.localizacao}"> Localização </td>
+				<td th:text="${pet.status}"> Status </td>
+				<td> <a th:href="@{'/update/'+ ${pet.id} + '/Procurando'}" class="btn btn-outline-warning">Procurar </a>
+				     <a th:href="@{'/update/'+ ${pet.id} + '/Resgatado'}" class="btn btn-outline-success">Resgatar </a>
+					 <a th:href="@{'/update/'+ ${pet.id} + '/NaoLocalizado'}" class="btn btn-outline-danger">Não Local.</a> 	     
+				 </td>
+			</tr>
+		</tbody>
+	
+	</table>
+
+</div>
+
+</body>
+</html>
